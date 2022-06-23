@@ -42,23 +42,33 @@ function checkBoxes() {
 
 // Password length updates
 var length = document.querySelector('#length')
-length.addEventListener("input", function () {
-    passwordLength = length.value
+length.addEventListener("change", function () {
+    if (length.value > 255 || length.value < 8) { alert("Silly goose, please follow password length instructions") }
+    else {
+        passwordLength = length.value
+    }
 })
 
 var password = []
 var passwordBox = document.querySelector('#passwordBox')
 
-// Script to create password 
+
 generatePassword = document.querySelector('#generatePassword')
+
+// Script to create password, active on button click
 generatePassword.addEventListener('click', function () {
 
+    // Checkbox function from above
     checkBoxes();
+
+    //loop to add letters to the password array one at a time 
     for (let i = 0; i < passwordLength; i++) {
         var newArray = PasswordArray[random(PasswordArray.length)];
         var newCharacter = newArray[random(newArray.length)];
         password.push(newCharacter);
     }
+
+    // to present generated passsword on webpage
     passwordBox.innerText = password.join('')
 
 
@@ -69,16 +79,3 @@ generatePassword.addEventListener('click', function () {
     setInterval(function () { password.splice(0, password.length) }, 100)
 })
 
-
-// console.log(document.querySelector('#atSymbol').checked);
-
-
-// // Special character prompt
-// var specialCharacter = prompt("Which special characters are to be included, leave empty if none, do not include spaces")
-
-// if (!specialCharacter.includes(" ")) { console.log(true) } else { console.log(false) }
-
-// const checker = value =>
-//     !['banana', 'apple'].some(element => value.includes(element));
-
-// console.log(specialCharacter.filter(checker));
