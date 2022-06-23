@@ -30,17 +30,18 @@ function specialCharacterCheck() {
 }
 
 
-var passwordLength = 0
-function hi() { console.log('hi') }
-
+// Password length updates
 var length = document.querySelector('#length')
 length.addEventListener("input", function () {
     passwordLength = length.value
 })
 
+// Script to create password 
 generatePassword = document.querySelector('#generatePassword')
 generatePassword.addEventListener('click', function () {
     specialCharacterCheck();
+    if (SpecialCharacter.length !== 0) { console.log('hi') };
+    setInterval(function () { SpecialCharacter.splice(0, SpecialCharacter.length) }, 100)
 })
 
 
