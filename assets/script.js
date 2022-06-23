@@ -30,10 +30,13 @@ function specialCharacterCheck() {
 }
 
 
-
+var passwordLength = 0
 function hi() { console.log('hi') }
 
-document.getElementsById('length').addEventListener("input", function () { console.log(length.value) })
+var length = document.querySelector('#length')
+length.addEventListener("input", function () {
+    passwordLength = length.value
+})
 
 generatePassword = document.querySelector('#generatePassword')
 generatePassword.addEventListener('click', function () {
