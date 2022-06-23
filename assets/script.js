@@ -36,12 +36,20 @@ length.addEventListener("input", function () {
     passwordLength = length.value
 })
 
+// arrays of arrays for use based on which perameters are checked
+var PasswordArray = []
+
 // Script to create password 
 generatePassword = document.querySelector('#generatePassword')
 generatePassword.addEventListener('click', function () {
     specialCharacterCheck();
-    if (SpecialCharacter.length !== 0) { console.log('hi') };
-    setInterval(function () { SpecialCharacter.splice(0, SpecialCharacter.length) }, 100)
+    if (SpecialCharacter.length !== 0) { PasswordArray.push(SpecialCharacter) };
+    if (document.querySelector('#LowercaseBox').checked) { PasswordArray.push(alphabetLower) }
+    if (document.querySelector('#CapitalBox').checked) { PasswordArray.push(alphabetCap) }
+
+    // to reset special character array after each run
+    setInterval(function () { SpecialCharacter.splice(0, SpecialCharacter.length) }, 1000)
+    setInterval(function () { PasswordArray.splice(0, PasswordArray.length) }, 1000)
 })
 
 
