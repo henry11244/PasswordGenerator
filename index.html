@@ -5,11 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="assets/style.css">
+
 </head>
 
 <body>
+    <label>Password length (8 to 255 characters)</label>
+    <input id='length' type="number" value="8">
+    <br>
+    <label>Lowercase Letters?</label>
+    <input type="checkbox">
+    <label>Capital Letters?</label>
+    <input type="checkbox">
+    <br>
+    <span>Check the special characters </span>
+    <label>!</label>
+    <input id="exclamationMark" type="checkbox">
+    <label>@</label>
+    <input id="atSymbol" type="checkbox">
+    <label>?</label>
+    <input id="questionMark" type="checkbox">
+    <label>#</label>
+    <input id="Pound" type="checkbox">
+    <label>$</label>
+    <input id="dollarSign" type="checkbox">
+    <label>%</label>
+    <input id="percent" type="checkbox">
+    <label>&</label>
+    <input id="andSign" type="checkbox">
+
+    <br>
+
+    <button id="generatePassword">Generate Password</button>
 
 </body>
 
 </html>
+
+<script src="assets/script.js"></script>
