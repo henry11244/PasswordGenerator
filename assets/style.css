@@ -1,0 +1,43 @@
+* {
+    text-align: center;
+}
+
+body {
+    display: flex;
+    width: 500px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 30%;
+    background-color: rgb(91, 150, 150);
+
+}
+
+h1 {
+    color: blue;
+
+}
+
+#passwordBox {
+
+    color: red;
+    border: 1px rgb(193, 181, 181) solid;
+    background-image: linear-gradient(green, purple);
+    width: 500px;
+    overflow-wrap: break-word;
+    height: 150px
+}
+
+#Special {
+    margin-top: 15px;
+
+}
+
+input,
+button {
+    border-radius: 8%;
+    box-shadow: 2px 2px grey;
+    color: red;
+    background-color: rgb(223, 220, 220);
+
+}

@@ -43,7 +43,10 @@ function checkBoxes() {
 // Password length updates
 var length = document.querySelector('#length')
 length.addEventListener("change", function () {
-    if (length.value > 255 || length.value < 8) { alert("Silly goose, please follow password length instructions") }
+    if (length.value > 255 || length.value < 8) {
+        alert("Silly goose, please follow password length instructions");
+        passwordBox.innerText = 'Only people that follow directions may use the Password Generator'
+    }
     else {
         passwordLength = length.value
     }
