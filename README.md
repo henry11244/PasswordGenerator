@@ -47,7 +47,9 @@ The goal of this repository is to create a site that will randomly generate a pa
 
 ## Instructions
 
-![](assets/AppImage.png)
+![Alt Text](assets/PasswordGenerator.gif)
+
+
 
 
 
