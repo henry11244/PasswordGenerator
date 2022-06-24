@@ -63,23 +63,26 @@ generatePassword.addEventListener('click', function () {
 
     // Checkbox function from above
     checkBoxes();
-
-    //loop to add letters to the password array one at a time 
-    for (let i = 0; i < passwordLength; i++) {
-        var newArray = PasswordArray[random(PasswordArray.length)];
-        var newCharacter = newArray[random(newArray.length)];
-        password.push(newCharacter);
+    if (PasswordArray.length === 0) {
+        alert('You did not select any password options.... What do you want me to generate?');
+        passwordBox.innerText = "You didn't select any parameters below... so you get no password generation......"
     }
+    else {
+        //loop to add letters to the password array one at a time 
+        for (let i = 0; i < passwordLength; i++) {
+            var newArray = PasswordArray[random(PasswordArray.length)];
+            var newCharacter = newArray[random(newArray.length)];
+            password.push(newCharacter);
+        }
 
-    // to present generated passsword on webpage
-    passwordBox.innerText = password.join('')
+        // to present generated passsword on webpage
+        passwordBox.innerText = password.join('')
 
-
-
-    // to reset arrays after each run
-    setInterval(function () { SpecialCharacter.splice(0, SpecialCharacter.length) }, 100)
-    setInterval(function () { PasswordArray.splice(0, PasswordArray.length) }, 100)
-    setInterval(function () { password.splice(0, password.length) }, 100)
+        // to reset arrays after each run
+        setInterval(function () { SpecialCharacter.splice(0, SpecialCharacter.length) }, 100)
+        setInterval(function () { PasswordArray.splice(0, PasswordArray.length) }, 100)
+        setInterval(function () { password.splice(0, password.length) }, 100)
+    }
 })
 
 generatePasswordPrompt = document.querySelector('#generatePasswordPrompt')
@@ -92,8 +95,8 @@ generatePasswordPrompt.addEventListener('click', function () {
     if (Len > 128 || Len < 8) {
         alert("Silly goose, please follow password length instructions");
         passwordBox.innerText = 'Only people that follow directions may use the Password Generator'
-        console.log(Len)
     }
+
 
     else {
         var Num = confirm("Use Numbers?");
@@ -117,11 +120,11 @@ generatePasswordPrompt.addEventListener('click', function () {
         // to present generated passsword on webpage
         passwordBox.innerText = password.join('')
 
-
-
         // to reset arrays after each run
-        // setInterval(function () { SpecialCharacter.splice(0, SpecialCharacter.length) }, 100)
-        // setInterval(function () { PasswordArray.splice(0, PasswordArray.length) }, 100)
-        // setInterval(function () { password.splice(0, password.length) }, 100)
+        setInterval(function () { SpecialCharacter.splice(0, SpecialCharacter.length) }, 100)
+        setInterval(function () { PasswordArray.splice(0, PasswordArray.length) }, 100)
+        setInterval(function () { password.splice(0, password.length) }, 100)
     }
 })
+
+

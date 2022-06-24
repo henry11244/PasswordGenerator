@@ -41,3 +41,14 @@ button {
     background-color: rgb(223, 220, 220);
 
 }
+
+button {
+    background-color: yellow;
+    padding: 1%;
+}
+
+#passwordBox {
+    background-color: rgb(163, 10, 163);
+    color: white;
+    user-select: all;
+}
