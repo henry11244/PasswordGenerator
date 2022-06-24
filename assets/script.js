@@ -43,7 +43,7 @@ function checkBoxes() {
 // Password length updates
 var length = document.querySelector('#length')
 length.addEventListener("change", function () {
-    if (length.value > 255 || length.value < 8) {
+    if (length.value > 128 || length.value < 8) {
         alert("Silly goose, please follow password length instructions");
         passwordBox.innerText = 'Only people that follow directions may use the Password Generator'
     }
@@ -58,7 +58,7 @@ var passwordBox = document.querySelector('#passwordBox')
 
 generatePassword = document.querySelector('#generatePassword')
 
-// Script to create password, active on button click
+// Script to create password, active on button click using checkboxed
 generatePassword.addEventListener('click', function () {
 
     // Checkbox function from above
@@ -82,3 +82,46 @@ generatePassword.addEventListener('click', function () {
     setInterval(function () { password.splice(0, password.length) }, 100)
 })
 
+generatePasswordPrompt = document.querySelector('#generatePasswordPrompt')
+
+// Script to create password, active on button click using prompts
+generatePasswordPrompt.addEventListener('click', function () {
+
+    // Prompts
+    let Len = prompt("How long is the password (8 to 128)");
+    if (Len > 128 || Len < 8) {
+        alert("Silly goose, please follow password length instructions");
+        passwordBox.innerText = 'Only people that follow directions may use the Password Generator'
+        console.log(Len)
+    }
+
+    else {
+        var Num = confirm("Use Numbers?");
+        var Upper = confirm("Use Uppercase?");
+        var Lower = confirm("Use Lowercase?");
+        var Spec = confirm("Use Special Character?");
+
+        // Add arrays to Password Arrays
+        if (Num) { PasswordArray.push(NumberArray) }
+        if (Upper) { PasswordArray.push(alphabetCap) }
+        if (Lower) { PasswordArray.push(alphabetLower) }
+        if (Spec) { PasswordArray.push(['!', '@', '?', '#', '$', '%', '&']) }
+
+        //loop to add letters to the password array one at a time 
+        for (let i = 0; i < Len; i++) {
+            var newArray = PasswordArray[random(PasswordArray.length)];
+            var newCharacter = newArray[random(newArray.length)];
+            password.push(newCharacter);
+        }
+
+        // to present generated passsword on webpage
+        passwordBox.innerText = password.join('')
+
+
+
+        // to reset arrays after each run
+        // setInterval(function () { SpecialCharacter.splice(0, SpecialCharacter.length) }, 100)
+        // setInterval(function () { PasswordArray.splice(0, PasswordArray.length) }, 100)
+        // setInterval(function () { password.splice(0, password.length) }, 100)
+    }
+})
