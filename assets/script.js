@@ -127,4 +127,3 @@ generatePasswordPrompt.addEventListener('click', function () {
     }
 })
 
-
